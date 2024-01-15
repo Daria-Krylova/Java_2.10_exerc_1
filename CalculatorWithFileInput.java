@@ -1,17 +1,14 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
         try {
             // Создаем объект File для файла input.txt
-            File file = new File("input.txt");
+            File inputFile = new File("input.txt");
+            File outputFile = new File("output.txt");
 
             // Создаем FileInputStream для чтения файла
-            FileInputStream fileInputStream = new FileInputStream(file);
+            FileInputStream fileInputStream = new FileInputStream(inputFile);
 
             // Создаем InputStreamReader для преобразования байтов в символы
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
@@ -29,7 +26,7 @@ public class Main {
 
             // Разбиваем строку на части по пробелам
             String[] parts = input.split(" ");
-            
+
             // Проверяем, что получили ровно 3 части (a, оператор, b)
             if (parts.length != 3) {
                 System.out.println("Operation Error!");
@@ -68,11 +65,16 @@ public class Main {
                         return;
                 }
 
-                // Выводим результат
+                // Выводим результат на консоль
                 System.out.println(result);
+
+                // Записываем результат в файл output.txt
+                FileWriter fileWriter = new FileWriter(outputFile);
+                fileWriter.write(String.valueOf(result));
+                fileWriter.close();
             } catch (NumberFormatException e) {
                 // Обрабатываем ошибку, если одно из чисел не является числом
-                System.out.println("Error! Not number");
+                System.out.println("Error! Not a number");
             }
         } catch (IOException e) {
             // Обрабатываем ошибку, если не удалось прочитать файл
