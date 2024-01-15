@@ -1,0 +1,9 @@
+23 + 42 = 65.0
+14 - f = Error! Not a number
+15 / 0 = Error! Division by zero
+45 * 2 = 90.0
+100 / 25 = 4.0
+-30 + 10 = -20.0
+5 * 3.5 = 17.5
+a - 4 = Error! Not a number
+60 / 0.5 = 120.0
